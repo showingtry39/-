@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap with jQuery Ajax</title>
+  <!-- 引入Bootstrap CSS -->
+  <link rel="stylesheet" href="path/to/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Dynamic Content</h1>
+    <div id="content"></div>
+  </div>
+
+  <!-- 引入jQuery和Bootstrap的JavaScript -->
+  <script src="path/to/jquery.js"></script>
+  <script src="path/to/bootstrap.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // 使用jQuery Ajax動態抓取資料
+      $.ajax({
+        url: 'path/to/data.json', // 資料的URL
+        dataType: 'json', // 資料的格式
+        success: function(data) {
+          // 成功獲取資料後的處理
+          // 在id為content的元素中動態顯示資料
+          $('#content').html(data.content);
+        },
+        error: function() {
+          // 發生錯誤時的處理
+          $('#content').html('Error fetching data.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
